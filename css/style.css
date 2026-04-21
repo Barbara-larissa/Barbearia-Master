@@ -1,0 +1,617 @@
+/* =========================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   VARIÁVEIS DE CORES (ADAPTÁVEIS)
+   ========================================= */
+:root {
+    /* Cores Fixas da Marca */
+    --azul-royal: #004aad;
+    --azul-escuro: #002d6a;
+    --branco: #ffffff;
+    --preto: #121212;
+    --verde-whats: #25d366;
+    --ouro: #d4af37;
+
+    /* Variáveis que mudam no Dark Mode (Padrão Light) */
+    --bg-site: #ffffff;
+    --bg-section-alt: #f4f4f4; /* cinza-claro */
+    --card-bg: #ffffff;
+    --texto-principal: #333333;
+    --texto-suave: #666666;
+    --titulo-cor: #002d6a;
+    --borda-card: rgba(0, 0, 0, 0.05);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Configuração do Dark Mode */
+[data-theme="dark"] {
+    --bg-site: #0b0f1a;        /* Azul marinho profundo */
+    --bg-section-alt: #111726; /* Seção de destaque escura */
+    --card-bg: #1a2133;        /* Fundo dos cards no dark */
+    --texto-principal: #e0e6f0;
+    --texto-suave: #a0aec0;
+    --titulo-cor: #ffffff;
+    --borda-card: rgba(255, 255, 255, 0.05);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+body {
+    background-color: var(--bg-site);
+    color: var(--texto-principal);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================
+   BANNER LIMPO (LARGURA TOTAL)
+   ========================================= */
+.hero {
+    width: 100%;
+    height: 70vh;
+    background-image: url('../img/banner-barbearia.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 4px solid var(--azul-royal);
+}
+
+[data-theme="dark"] .hero {
+    filter: brightness(0.8) contrast(1.1);
+}
+
+/* =========================================
+   BLOCO DE INFORMAÇÃO ABAIXO DO BANNER
+   ========================================= */
+.hero-info {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--bg-site);
+}
+
+.hero-info h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: var(--titulo-cor);
+    font-weight: 800;
+    margin-bottom: 15px
+}
+
+.hero-info h1 span {
+    color: var(--azul-royal);
+}
+
+.hero-info p {
+    font-size: 1.2rem;
+    color: var(--texto-suave);
+    margin-bottom: 45px;
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+
+/* =========================================
+   BOTÃO WHATSAPP VERDE COM ESTILO PREMIUM
+   ========================================= */
+.btn-whatsapp-hero {
+    background-color: transparent !important; /* Fundo transparente para aparecer a borda */
+    color: var(--verde-whats) !important;      /* Texto em verde */
+    border: 2px solid var(--verde-whats) !important; /* Borda verde */
+    padding: 18px 45px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: none !important; /* Remove a sombra pesada para ficar mais clean */
+}
+
+.btn-whatsapp-hero:hover {
+    background-color: var(--verde-whats) !important; /* Preenche de verde ao passar o mouse */
+    color: white !important;                         /* Texto vira branco */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3) !important; /* Sombra leve só no hover */
+}
+
+/* Garante que o ícone acompanhe a cor */
+.btn-whatsapp-hero i {
+    font-size: 1.3rem;
+}
+
+/* =========================================
+   CONTAINER E RESTANTE DO SITE
+   ========================================= */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin: 60px 0 40px;
+    color: var(--titulo-cor);
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    position: relative;
+}
+
+/* Linha decorativa abaixo do título */
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: var(--azul-royal);
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* TABELA FLUTUANTE */
+.tabela-card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px var(--shadow-color);
+    max-width: 700px;
+    margin: 0 auto;
+    animation: flutuar 5s ease-in-out infinite;
+    border: 1px solid var(--borda-card);
+}
+.linha-preco {
+    display: flex;
+    justify-content: space-between; /* Nome na esquerda | Grupo na direita */
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px dashed var(--borda-card);
+}
+
+.preco-acao {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Espaço fixo entre o preço e o botão */
+}
+
+.valor {
+    color: var(--azul-royal);
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-width: 85px; /* Alinha o início de todos os preços */
+    text-align: right;
+}
+
+.btn-agendar-tabela {
+    background-color: var(--verde-whats);
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    width: 110px; /* Todos os botões do mesmo tamanho */
+    text-align: center;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-agendar-tabela:hover {
+    background-color: #128c7e;
+    transform: scale(1.05);
+}
+
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.linha-preco {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px dashed var(--borda-card);
+}
+
+.valor {
+    color: var(--azul-royal);
+    font-weight: bold;
+}
+
+
+/* =========================================
+   SEÇÃO DE SERVIÇOS
+   ========================================= */
+#servicos {
+    padding: 80px 0;
+    background-color: var(--bg-site);
+}
+
+.grid-servicos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.servico-item {
+    background: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--borda-card);
+    box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+.servico-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 74, 173, 0.15);
+    border-color: var(--azul-royal);
+}
+
+.icon-circle {
+    width: 90px;
+    height: 90px;
+    background: var(--azul-royal);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2.2rem;
+    box-shadow: 0 8px 20px rgba(0, 74, 173, 0.3);
+    transition: 0.3s;
+}
+
+.servico-item:hover .icon-circle {
+    background: var(--azul-escuro);
+    transform: scale(1.1);
+}
+
+.servico-item h3 {
+    font-size: 1.5rem;
+    color: var(--titulo-cor);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.servico-item p {
+    font-size: 1rem;
+    color: var(--texto-suave);
+    line-height: 1.6;
+}
+
+
+
+/* =========================================
+   SEÇÃO DE FEEDBACKS (LIMPA E INTEGRADA)
+   ========================================= */
+#feedbacks {
+    padding: 100px 0;
+    /* Faz a seção ter a mesma cor do fundo principal do site */
+    background-color: var(--bg-site); 
+    width: 100%;
+}
+
+.feedback-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+
+.card-feedback {
+    background: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 20px;
+    /* Sombra suave em vez de caixa sólida */
+    box-shadow: 0 10px 30px var(--shadow-color);
+    border: 1px solid var(--borda-card);
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    transition: transform 0.3s ease;
+}
+
+/* Destaque na lateral para manter a identidade */
+.card-feedback {
+    border-left: 5px solid var(--azul-royal);
+}
+
+.card-feedback:hover {
+    transform: translateY(-10px);
+}
+
+.card-feedback p {
+    color: var(--texto-principal);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.estrelas {
+    color: #ffc107;
+    margin-bottom: 15px;
+}
+
+.card-feedback strong {
+    color: var(--titulo-cor);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+}
+
+
+/* WhatsApp Flutuante */
+.whats-flutuante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--verde-whats);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.whats-flutuante:hover {
+    transform: scale(1.1);
+}
+
+
+/* =========================================
+   STATUS DE FUNCIONAMENTO (HERO)
+   ========================================= */
+/* =========================================
+   STATUS DE FUNCIONAMENTO (HERO)
+   ========================================= */
+
+/* Estilo do Container (A "caixa" do status) */
+.status-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px; 
+    margin-top: 30px;    
+    background: rgba(255, 255, 255, 0.08);
+    padding: 12px 28px;  
+    border-radius: 50px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px); 
+    transition: 0.5s ease;
+}
+
+/* Estilo do Texto */
+.status-texto {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Base da Bolinha */
+.ponto-verde {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* -----------------------------------------
+   ESTADO: ABERTO (VERDE)
+   ----------------------------------------- */
+.status-container:not(.fechado) {
+    border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.status-container:not(.fechado) .ponto-verde {
+    background-color: #25d366;
+    box-shadow: 0 0 15px #25d366;
+    animation: pulse-verde 2s infinite;
+}
+
+@keyframes pulse-verde {
+    0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { transform: scale(1.2); box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+    100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* -----------------------------------------
+   ESTADO: FECHADO (VERMELHO)
+   ----------------------------------------- */
+.status-container.fechado {
+    border: 1px solid rgba(255, 69, 58, 0.4);
+}
+
+.status-container.fechado .ponto-verde {
+    background-color: #ff453a;
+    box-shadow: 0 0 15px #ff453a;
+    animation: pulse-vermelho 2s infinite;
+}
+
+@keyframes pulse-vermelho {
+    0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255, 69, 58, 0.7); }
+    70% { transform: scale(1.2); box-shadow: 0 0 0 12px rgba(255, 69, 58, 0); }
+    100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255, 69, 58, 0); }
+}
+
+
+
+
+/* =========================================
+   SEÇÃO DE PAGAMENTOS (ABAIXO DA TABELA)
+   ========================================= */
+.pagamento-container {
+    text-align: center;
+    margin-top: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.03); /* Fundo sutil */
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pagamento-container h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pagamento-metodos {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.metodo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.metodo-item i {
+    font-size: 2rem;
+    color: var(--azul-royal); /* Ou a cor que você usa nos botões */
+    filter: drop-shadow(0 0 5px rgba(65, 105, 225, 0.3));
+}
+
+.metodo-item span {
+    color: #ccc;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Efeito ao passar o mouse */
+.metodo-item:hover {
+    transform: translateY(-5px);
+}
+
+.metodo-item:hover i {
+    color: #fff;
+}
+
+/* Ajuste para celular */
+@media (max-width: 600px) {
+    .pagamento-metodos {
+        gap: 20px;
+    }
+    
+    .metodo-item i {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   ESTILO DO FOOTER
+   ========================================= */
+footer {
+    background-color: var(--preto); /* Ou var(--azul-escuro) conforme seu tema */
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 2px solid var(--azul-royal);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s ease;
+}
+
+/* Cores específicas no Hover */
+.social-link:hover {
+    color: var(--azul-royal);
+    transform: translateY(-3px);
+}
+
+/* Ícone do WhatsApp fica verde no hover */
+.social-link:hover .fa-whatsapp {
+    color: var(--verde-whats);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

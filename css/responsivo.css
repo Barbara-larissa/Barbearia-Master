@@ -1,0 +1,184 @@
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-info h1 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .servico-item {
+        padding: 30px 20px;
+    }
+
+    .feedback-container {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    /* Ajusta a altura do banner no celular para não ocupar a tela toda */
+    .hero {
+        height: 45vh;
+        background-attachment: scroll;
+        /* Melhora a performance no mobile */
+    }
+
+    .hero-info {
+        padding: 40px 15px;
+        /* Espaçamento interno reduzido */
+    }
+
+    .hero-info h1 {
+        font-size: 1.8rem;
+        /* Diminui o título para não quebrar em várias linhas */
+        line-height: 1.2;
+    }
+
+    .hero-info h1 span {
+        display: block;
+        /* Força o "BARBEARIA" a ir para a linha de baixo */
+        font-size: 1.6rem;
+    }
+
+    .hero-info p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+        padding: 0 10px;
+    }
+
+    /* Botão estilo Full Width */
+    .btn-whatsapp-hero {
+        width: 100%;
+        max-width: 300px;
+        padding: 15px 20px;
+        font-size: 0.9rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-info h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* 4. CELULARES PEQUENOS (max-width: 480px) */
+@media (max-width: 480px) {
+    .hero {
+        height: 40vh;
+    }
+
+    .hero-info h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    /* Ajuste para o WhatsApp não cobrir conteúdo importante */
+    .whats-flutuante {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    /* Ajuste da linha de preço */
+    .linha-preco {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.9rem;
+        padding: 15px 0;
+    }
+
+    .preco-acao {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .valor {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    .btn-agendar-tabela {
+        flex: 1;
+        text-align: center;
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+
+    .status-container {
+        padding: 8px 20px;
+    }
+
+    .status-texto {
+        font-size: 0.85rem;
+    }
+
+    /* 1. Ajuste da Tabela de Valores */
+    .tabela-valores {
+        padding: 15px;
+    }
+
+    .servico-item {
+        padding: 12px 0;
+    }
+
+    .servico-info h4 {
+        font-size: 0.9rem;
+    }
+
+    .btn-agendar {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+
+    /* 2. Ajuste das Formas de Pagamento */
+    .pagamento-metodos {
+        gap: 15px;
+        justify-content: space-evenly;
+    }
+
+    .metodo-item i {
+        font-size: 1.4rem;
+    }
+
+    .metodo-item span {
+        font-size: 0.65rem;
+    }
+
+    /* 3. Ajuste do Container de Pagamento */
+    .pagamento-container {
+        padding: 15px 10px;
+        margin: 20px 10px;
+    }
+
+    .pagamento-container h3 {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+}
+/* 5. AJUSTE PARA QUANDO O CELULAR ESTÁ DEITADO (LANDSCAPE) */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        height: 80vh;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-social {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
