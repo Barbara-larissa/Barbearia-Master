@@ -301,56 +301,60 @@ body {
 
 
 /* =========================================
-   SEÇÃO DE FEEDBACKS (LIMPA E INTEGRADA)
+   SEÇÃO DE FEEDBACKS (CARROSSEL CORRIGIDO)
    ========================================= */
+/* =========================================
+   FEEDBACKS EM CARDS + CARROSSEL LATERAL
+   ========================================= */
+
 #feedbacks {
     padding: 100px 0;
-    /* Faz a seção ter a mesma cor do fundo principal do site */
-    background-color: var(--bg-site); 
+    background: var(--bg-site);
+    overflow: hidden;
+}
+
+/* Área do swiper */
+.feedback-slider {
     width: 100%;
+    padding: 30px 40px 70px;
 }
 
-.feedback-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    padding: 0 20px;
-    margin-top: 50px;
+/* Slides lado a lado */
+.feedback-slider .swiper-slide {
+    width: 340px !important;
+    opacity: 0.55;
+    transform: scale(0.92);
+    transition: all 0.4s ease;
 }
 
+/* Card ativo no centro */
+.feedback-slider .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Card lateral */
 .card-feedback {
     background: var(--card-bg);
-    padding: 40px 30px;
-    border-radius: 20px;
-    /* Sombra suave em vez de caixa sólida */
-    box-shadow: 0 10px 30px var(--shadow-color);
     border: 1px solid var(--borda-card);
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    transition: transform 0.3s ease;
-}
-
-/* Destaque na lateral para manter a identidade */
-.card-feedback {
-    border-left: 5px solid var(--azul-royal);
-}
-
-.card-feedback:hover {
-    transform: translateY(-10px);
+    border-left: 4px solid var(--azul-royal);
+    border-radius: 18px;
+    padding: 30px;
+    min-height: 260px;
+    box-shadow: 0 15px 35px var(--shadow-color);
 }
 
 .card-feedback p {
-    color: var(--texto-principal);
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.7;
-    margin-bottom: 20px;
+    color: var(--texto-principal);
+    margin-bottom: 18px;
 }
 
 .estrelas {
     color: #ffc107;
     margin-bottom: 15px;
+    font-size: 1.1rem;
 }
 
 .card-feedback strong {
@@ -359,7 +363,33 @@ body {
     text-transform: uppercase;
 }
 
+/* Paginação */
+.swiper-pagination-bullet {
+    background: #ffffff50;
+    opacity: 1;
+}
 
+.swiper-pagination-bullet-active {
+    background: var(--azul-royal);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .feedback-slider {
+        padding: 20px 15px 60px;
+    }
+
+    .feedback-slider .swiper-slide {
+        width: 90% !important;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .card-feedback {
+        min-height: auto;
+        padding: 25px;
+    }
+}
 /* WhatsApp Flutuante */
 .whats-flutuante {
     position: fixed;
